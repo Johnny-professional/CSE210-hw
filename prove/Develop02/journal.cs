@@ -1,9 +1,9 @@
 using System;
 
-class Journal
+public class Journal
 {
     // DateTime _dateTime = DateTime.Now;
-    string filename = "journal.txt";
+    // string filename = "journal.txt";
     string userWriter;
     string _question;
     string _dateTime;
@@ -11,12 +11,7 @@ class Journal
     // List<Entry> entreis;
 
     // List<string> listOfWritten = new List<string>();
-    public void UserEntry()
-    {
-        Console.Write("");
-        var _answer = Console.ReadLine();
-
-    }
+    
 
     public void DisplayJournalEntries()
     {
@@ -33,7 +28,13 @@ class Journal
 
     public void LoadFromFile()
     {
-
+        string files = "journal.txt";
+        string[] lines = System.IO.File.ReadAllLines(files);
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+            Console.WriteLine(line);
+        }
     }
 
 }
