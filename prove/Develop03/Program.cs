@@ -10,25 +10,27 @@ class Program
         var _scripture = TheScripture.usingScripture();
         Console.WriteLine(_scripture);
         
-        do{
-
+        while (UserChoice != "quit")
+        {
+            List<string> wordList = new List<string>();
         
-            
+            Word _enter = new Word();
+            string _getEnter = _enter.GetEnter();
+            // string _theText = _enter.GetText();
             // var TheScripture = new Scripture();
             // var _scripture = TheScripture.usingScripture();
-            var _UserEnter = TheScripture.usingScripture();
+            // var _UserEnter = TheScripture.usingScripture();
             // Console.WriteLine(_scripture);
-            Console.WriteLine(_UserEnter);
+            Console.WriteLine(_getEnter);
             Console.ReadLine();
             Console.Clear();
 
-            List<string> wordList = new List<string>();
             
             char[] chars = new char[] {';','.',',',' '};
-            var text = new Word();
-            var Mytext = text.GetText();
+            // var text = new Word();
+            var Mytext = _enter.GetText();
             string[] _split = Mytext.Split(chars,StringSplitOptions.RemoveEmptyEntries);
-            foreach ( var x in _split )
+            foreach ( string x in _split )
             {
                 wordList.Add(x);
             }
@@ -36,21 +38,29 @@ class Program
             int CountWord = wordList.Count();
             int _number = random.Next(0, CountWord);
             int _number1 = random.Next(0, CountWord);
+            int _number2 = random.Next(0, CountWord);
+
             NewList.Add(_number);
             NewList.Add(_number1);
+            NewList.Add(_number2);
+
+            int numberCount = NewList.Count();
+            string  _hiddenword = "";
+
 
             foreach (int _element in NewList)
             {
-                var PickedWord = wordList[_element];
-                var _number3 = PickedWord.Count();
-                var hidden = 0;
+                string PickedWord = wordList[_element];
+                int _number3 = PickedWord.Count();
+                int i = 0;  
                 
-                while (hidden< _number3)
+                while (i < _number3)
                 {
-                    PickedWord = PickedWord + "_";
-                    hidden++;
+                    _hiddenword = _hiddenword + "_";
+                    i++;
                 } 
-                PickedWord = "";
+                wordList[_element] = _hiddenword;
+                _hiddenword = "";
             }
             int j = 0;
             string part1 = "";
@@ -93,15 +103,13 @@ class Program
             string combined = all.NumberString();
             var Script = new Scripture();
             var reference = Script.GetReference();
-
-
+            
             Console.WriteLine(reference + combined);
 
-        
+    
 
-
-
-        }while (UserChoice != "quit");
+        }
+      
     } 
     
         
