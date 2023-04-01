@@ -6,6 +6,9 @@ class Program
     {
         // Console.WriteLine("Hello Develop02 World!");
         int userChoise = 0;
+        // string filename1;
+        var _journals = new Journal();
+
         
         List<string> menuLists = new List<string>
         {
@@ -33,26 +36,27 @@ class Program
             {
                 PromptGenerator rand = new PromptGenerator();
                 rand.Prompt();
+                rand.Add()
                 var _response = new Entry();
                 _response._UserEntry();
 
             }
             else if (userChoise == 2)
             {
-                var _journals = new Journal();
-                _journals.LoadFromFile();
+                _journals.Display1();
                 
-
             }
 
             else if (userChoise == 3)
             {
-                
+                _journals.LoadFromFile();
+
             }
             
             else if (userChoise == 4)
             {
-                
+                _journals.SaveIntoFile();
+
             }
 
             

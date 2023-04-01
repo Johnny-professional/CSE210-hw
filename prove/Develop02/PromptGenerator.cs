@@ -1,6 +1,6 @@
 using System;
 
-class PromptGenerator
+public class PromptGenerator
 {
    private string[] randQuestion =
     {
@@ -10,11 +10,19 @@ class PromptGenerator
         "- What was the strongest emotion I felt today? ",
         "- If I had one thing I could do over today, what would it be? ",
         "- what was the new things I learned Today? ",
-        "- what is the things I need to to improve? "
+        "- what is the things I need to improve? "
     };
+    string _randomFirst = "";
+
+    public string GetRand()
+    {
+        return _randomFirst;
+    }
 
    public void Prompt()
    {
+    // _randomFirst = _randomFirst;
+
     Random PromptGenerator = new Random();
     string randomFirst = randQuestion[PromptGenerator.Next(randQuestion.Length)];
 
