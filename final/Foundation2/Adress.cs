@@ -2,10 +2,6 @@ using System;
 
 public class Address
 {
-    using System;
-
-public class Address
-{
     private string _street = "";
     private string _city = "";
     private string _state = "";
@@ -40,5 +36,4 @@ public class Address
         _list.Add(a);
         return a;
     }
-}
 }

@@ -4,12 +4,26 @@ using System.IO;
 public class Entry
 {
     private string fileName = "journal.txt";
+    private string _question = "";
     DateTime currentDate = DateTime.Now;
     List<string> saveUserEnter = new List<string>();
+
+    // public string getQuestion()
+    // {
+    //     return _question;
+    // }
+    // public void setQuestion(string question)
+    // {
+    //     _question = question;
+    // }
+
     public void _UserEntry()
     {
         // List<string> saveUserEnter = new List<string>();
-        Console.Write("");
+        PromptGenerator rand = new PromptGenerator();
+        rand.Prompt();
+        
+        // Console.Write("");
         var _answer = Console.ReadLine();
         if (_answer != null)
         {
@@ -20,7 +34,7 @@ public class Entry
                 using (StreamWriter SaveWrite = File.CreateText(fileName))
                 {
                     // SaveWrite.WriteLine(saves);
-                    SaveWrite.WriteLine($"date: {currentDate} - {saves}");
+                    SaveWrite.WriteLine($"date: {currentDate} -  {saves}");
                
                 }
             }

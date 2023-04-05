@@ -53,7 +53,7 @@ class Program
                 Console.WriteLine(_menu);
             }
             Choice = int.Parse(Console.ReadLine());
-            if (Choice == 1)
+            if (Choice == 1) 
             {
                 string[] GoalChoices = 
                 {
@@ -160,7 +160,7 @@ class Program
             filename = Console.ReadLine();
             using (StreamWriter outputFile = new StreamWriter(filename))
             {
-                outputFile.WriteLine($"{point}");
+                outputFile.WriteLine($"{GoalList}");
                 foreach (Goal goal1 in GoalList)
                 {
                     outputFile.WriteLine($"{goal1.DisplayGoal()}");
